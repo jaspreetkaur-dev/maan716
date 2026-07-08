@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You ❤️</title>
+
+<style>
+body{
+    margin:0;
+    background:#ffd6e7;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+}
+
+.box{
+    width:80%;
+    max-width:600px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px pink;
+}
+
+img{
+    width:220px;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+h1{
+    color:#ff0066;
+}
+
+p{
+    font-size:20px;
+    line-height:35px;
+}
+</style>
+
+</head>
+<body>
+<audio autoplay loop>
+    <source src="music/music.mp3" type="audio/mpeg">
+</audio>
+<div class="box">
+
+<img src="images/photo.jpg">
+
+<h1>For My Love ❤️</h1>
+
+<p id="text"></p>
+
+</div>
+<script>
+let msg = `You are the best thing that ever happened to me ❤️
+
+Every day with you is beautiful 🌹
+
+Thank you for being in my life 💕
+
+I Love You Forever ❤️`;
+
+let i = 0;
+
+function typing() {
+    if (i < msg.length) {
+        document.getElementById("text").innerHTML += msg.charAt(i);
+        i++;
+        setTimeout(typing, 60);
+    }
+}
+
+typing();
+</script>
+</body>
+</html>
