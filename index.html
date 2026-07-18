@@ -1,26 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Baby ❤️</title>
+    <title>Just For You ❤️</title>
+     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-<div id="hearts"></div>
-<div class="card">
-    <img src="images/photo.JPG" class="photo">
-    <h1>Hey My Love ❤️</h1>
+    <div class="desktop-only">
+        💻 This website is specially designed for Desktop/Laptop.<br>
+        Please open it on a computer for the best experience. ❤️
+    </div>
+    <!-- Floating Hearts -->
+    <div class="floating-hearts-down">
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+    </div>
+    <div class="floating-hearts">
+
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+
+    </div> 
+    <div id="hearts"></div>
     
-    <p>
-        I made something special just for you 💕
-    </p>
+    <!-- Music Button -->
+    <button class="music-btn" id="musicBtn">
+        <i class="fa-solid fa-music"></i>
+    </button>
+    <!-- Main Container -->
 
-    <button id="yes">Open It ❤️</button>
-    <button id="no">No 😢</button>
-</div>
+    <div class="container">
+        <div class="first_screen">
+            <!-- Heart -->
 
-<script src="script.js"></script>
+            <div class="heart-wrapper">
+
+                <img src="images/red_heart.png" class="heart" alt="Heart">
+
+            </div>
+
+            <!-- Heading -->
+
+            <h1>
+                Something Special...
+            </h1>
+
+            <h2>
+                Just For You Sandeep Ji
+            </h2>
+            <!-- Buttons -->
+
+            <div class="buttons">
+
+                <button class="open-btn first_open_btn">Open It 🤗</button>
+
+                <button id="noBtn" class="no-btn">No... I don't want to open 💔</button>
+
+            </div>
+        </div>
+
+        <!-- Final Screen -->
+
+        <div id="finalScreen" class="final-screen">
+
+            <div class="img">
+                <img src="images/broken_heart.png" class="final-heart" alt="Broken Heart">
+            </div>
+            <h1>I Guess You Really Said No... 💔</h1>
+
+            <h2>
+                Maybe this letter doesn't matter to you...
+                <br>
+                But my feelings will always remain the same. ❤️
+            </h2>
+
+            <button class="open-btn last_open_btn">Please Open It 🤗</button>
+
+        </div>
+
+        <!--- MEssage Screen --->
+
+        <div class="message-screen" style="display:none;">
+            <!-- Photo -->
+             <div class="box">
+
+                <img src="images/photo.jpg" class="card_img">
+                <!-- Heading -->
+                <h1 class="title">
+
+                    <span>For My Sohne Sardar Ji</span>
+
+                    <img src="images/red_heart.png" class="heart">
+
+                </h1>
+                <!-- <h1>For My Sohne Sardar Ji <div class="heart-wrapper">
+
+                <img src="images/red_heart.png" class="heart" alt="Heart">
+
+                </div></h1> -->
+
+                <hr>
+
+                <!-- Typing Message -->
+                <div class="message-area"><p id="text"></p></div>
+                <!-- <div class="letter-signature">
+                    <div class="sign">With All My Love,</div>
+                    <h2>Jaspreet ❤️</h2>
+                </div> -->
+                <div class="question-box">
+                    <div class="question">
+                        Will you forgive me...
+                        <br>
+                        and stay with me forever? 🥺❤️
+                    </div>
+
+                    <div class="buttons" style="display: block;margin: auto;padding-top: 5px;">
+                        <button id="yesBtns" class="open-btn">
+                            Yes ❤️
+                        </button>
+                        <button id="noBtns" class="no-btn">
+                            No 😭
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <audio id="bgMusic" loop>
+                <source src="music/music.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+
+        <div class="love-success-screen" id="loveSuccess">
+
+            <div class="love-success-card">
+
+                <img src="images/photo.jpg" class="success-img">
+
+                <h1>I Love You ❤️</h1>
+
+                <p>
+                    Thank you for choosing me.
+                    <br><br>
+                    I promise I'll always love you,
+                    respect you and stay beside you forever. ❤️
+                </p>
+
+                <button id="loveDoneBtn">
+                    Forever Together 💍
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Romantic Popup -->
+    <div id="lovePopup" class="popup-overlay">
+        <div class="popup-box">
+            <p id="popupText">
+                Really...?
+                <br>
+                You don't even want to see this...?
+                
+            </p>
+
+            <div class="buttons">
+
+                <button class="popup-open-btn second_open_btn">Open It 🤗</button>
+
+                <button id="popupNoBtn" class="popup-no-btn">No... I don't want to open 💔</button>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Bottom Quote -->
+
+    <div class="bottom-text">
+
+        Made with ❤️ only for you Maan Ji
+
+    </div>
+    <div id="heartAnimation">
+
+        <canvas id="heartCanvas"></canvas>
+
+        <div class="loveText">
+            <h1>I Love You ❤️</h1>
+            <p>Forever & Always</p>
+        </div>
+
+    </div>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="heart-animation.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
