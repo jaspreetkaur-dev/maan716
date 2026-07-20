@@ -58,7 +58,7 @@ let msg = `If I could give you one gift {rose} It would be the ability to see yo
 You Light up my life with your every word, smile and laugh {smile} You are the best thing to ever happen to me and I love you more than words can exlpain {heart}
 Every day with you is more beautiful because of you {rose} Thank you for filling my life with happiness {hearts}
 No matter what happens... I will always choose You {heart}
-Forever & Always {love} | 14 July 2026`;
+Forever & Always {love} | 19 July 2026`;
 
 let i = 0;
 const text = document.getElementById("text");
@@ -70,7 +70,9 @@ function typing() {
         text.classList.add('typing-finished');
         setTimeout(() => {
             // document.querySelector(".question-box").style.visibility= "visible";
-            document.querySelector(".question-box").classList.add("show");
+            document.querySelector(".question").classList.add("show");
+            document.querySelector("#yesBtns").classList.add("show");
+            document.querySelector("#noBtns").classList.add("show");
             // document.querySelector(".letter-signature").classList.add("show");
 
         }, 2000);
@@ -186,7 +188,6 @@ function openLetter(type) {
 
 const noBtns = document.getElementById("noBtns");
 const box = document.querySelector(".box");
-const qBox = document.querySelector(".question-box");
 
 const messages = [
     "🥺 Please don't say no...",
@@ -199,32 +200,38 @@ const messages = [
 
 const popupMsg = document.createElement("div");
 popupMsg.className = "no-message";
-qBox.appendChild(popupMsg);
+box.appendChild(popupMsg);
+
+let isMoving = false;
 
 noBtns.addEventListener("mouseenter", moveNoButton);
 
 function moveNoButton() {
 
-    const boxRect = box.getBoundingClientRect();
+    if (isMoving) return;
+    isMoving = true;
+
+    const container = box.getBoundingClientRect();
 
     const btnWidth = noBtns.offsetWidth;
     const btnHeight = noBtns.offsetHeight;
 
-    const maxX = boxRect.width - btnWidth - 20;
-    const maxY = boxRect.height - btnHeight - 20;
+    const maxX = container.width - btnWidth - 20;
+    const maxY = container.height - btnHeight - 20;
 
-    const x = Math.floor(Math.random() * maxX);
-    const y = Math.floor(Math.random() * maxY);
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
     noBtns.style.position = "absolute";
     noBtns.style.left = `${x}px`;
-    noBtns.style.top = `${y}px`;
+    noBtns.style.top = `${Math.max(0, y - 5)}px`;
 
     popupMsg.innerHTML =
         messages[Math.floor(Math.random() * messages.length)];
 
     popupMsg.style.left = `${x}px`;
-    popupMsg.style.top = `${y - 50}px`;
+    popupMsg.style.top = `${Math.max(0, y - 45)}px`;
+
     popupMsg.classList.remove("fade-out");
     popupMsg.classList.add("show");
 
@@ -233,7 +240,15 @@ function moveNoButton() {
     window.msgTimer = setTimeout(() => {
         popupMsg.classList.remove("show");
         popupMsg.classList.add("fade-out");
-    }, 1500);
+    }, 1200);
+
+    // Prevent instant re-trigger
+    noBtns.style.pointerEvents = "none";
+
+    setTimeout(() => {
+        noBtns.style.pointerEvents = "auto";
+        isMoving = false;
+    }, 250);
 }
 
 const yesBtns = document.getElementById("yesBtns");

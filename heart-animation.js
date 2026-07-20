@@ -225,7 +225,7 @@ function drawLoveText() {
     ctx.shadowBlur = 40;
 
     ctx.fillText(
-        "I ❤️ You",
+        "I 💖 You",
         canvas.width / 2,
         canvas.height / 2 + 100
     );
