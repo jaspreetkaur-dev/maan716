@@ -58,7 +58,7 @@ let msg = `If I could give you one gift {rose} It would be the ability to see yo
 You Light up my life with your every word, smile and laugh {smile} You are the best thing to ever happen to me and I love you more than words can exlpain {heart}
 Every day with you is more beautiful because of you {rose} Thank you for filling my life with happiness {hearts}
 No matter what happens... I will always choose You {heart}
-Forever & Always {love} | 19 July 2026`;
+Forever & Always {love} | 20 July 2026`;
 
 let i = 0;
 const text = document.getElementById("text");
